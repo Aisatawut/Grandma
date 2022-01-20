@@ -857,13 +857,13 @@ footer a:hover
 		font-size: 27px;
 	}
 
-	.menu-price li a:hover .menu-desc span {
+	.menu-price div a:hover .menu-desc span {
 		padding: 0px;
-		line-height: 18px;
+		divne-height: 18px;
 		font-size: 12px;
 	}
 
-	.menu-price li a .menu-desc span h3 {
+	.menu-price div a .menu-desc span h3 {
 		font-size: 19px;
 		margin-bottom: 12px;
 	}

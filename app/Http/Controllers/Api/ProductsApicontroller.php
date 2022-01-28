@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Products;
+use App\Product;
 
 class ProductsApicontroller extends Controller
 {
@@ -15,7 +15,7 @@ class ProductsApicontroller extends Controller
      */
     public function index()
     {
-        $Products = Products::all();
+        $Products = Product::all();
         return $Products;
 
     }

@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
-use App\products;
+use App\Product;
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,7 +16,7 @@ use App\products;
 */
 
 Route::get('/', function () {
-    $products = Products::all();
+    $products = Product::all();
 
 
     return view('welcome', compact('products'));

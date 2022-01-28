@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Products;
+use App\Product;
 
 class DashboardController extends Controller
 {
@@ -14,7 +14,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $home = Products::all();
+        $home = Product::all();
         return view('admin/dashboard' , compact('home'));
 
     }

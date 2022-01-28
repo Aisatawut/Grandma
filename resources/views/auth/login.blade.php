@@ -58,9 +58,9 @@
                                 </button>
 
 
-                                    <a class="btn btn-link" href="{{route('register')}}">
+                                    {{-- <a class="btn btn-link" href="{{route('register')}}">
                                         Register
-                                    </a>
+                                    </a> --}}
                             </div>
                         </div>
                     </form>

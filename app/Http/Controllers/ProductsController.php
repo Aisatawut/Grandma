@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Products;
+use App\Product;
 
 
 use Illuminate\Support\Facades\File;
@@ -18,8 +18,8 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        $products = Products::all();
-        return view('admin/products/products', compact('products'));
+        $products = Product::all();
+        return view('admin.products.products', compact('products'));
     }
 
     /**
@@ -29,12 +29,12 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        return view('admin/products/addproducts');
+        return view('admin.products.addproducts');
     }
 
     public function add(Request $request)
     {
-        $products = new Products();
+        $products = new Product();
         $products->name = $request->name;
         $products->description = $request->description;
         $products->category_id = $request->category_id;
@@ -55,13 +55,13 @@ class ProductsController extends Controller
 
     public function edit($id)
     {
-        $products = Products::find($id);
-        return view('admin\products\editeproducts', compact('products'));
+        $products = Product::find($id);
+        return view('admin.products.editeproducts', compact('products'));
     }
 
     public function update(Request $request, $id)
     {
-        $products = Products::find($id);
+        $products = Product::find($id);
         $filename = $products->image;
         File::delete(public_path() . '/admin/products/' . $filename);
         if ($request->hasFile('image')) {
@@ -73,7 +73,7 @@ class ProductsController extends Controller
         } else {
             $new = 'default.png';
         };
-        Products::updateOrCreate(
+        Product::updateOrCreate(
             [
                 'id' => $id
             ],
@@ -89,10 +89,10 @@ class ProductsController extends Controller
 
     public function destroy($id)
     {
-        $products = Products::find($id);
+        $products = Product::find($id);
         $filename = $products->image;
         File::delete(public_path() . '/admin/products/' . $filename);
-        Products::destroy($id);
+        Product::destroy($id);
         return redirect()->route('products');
     }
 }
